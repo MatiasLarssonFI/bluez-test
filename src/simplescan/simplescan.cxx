@@ -40,4 +40,7 @@ int main() {
         }
         printf("%s  %s\n", addr, name);
     }
+
+    close(sock);
+    return 0;
 }
