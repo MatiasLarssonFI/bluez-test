@@ -11,7 +11,6 @@ DIRS   := $(OBJDIR) ../bin/debug ../bin/release
 
 # output file paths
 BINARIES = $(addprefix $(BINDIR)/,$(BINNAMES))
-OBJECTS  = $(addsuffix .o,$(addprefix $(OBJDIR)/,$(BINNAMES)))
 SOURCES  = $(wildcard */*.cxx)
 
 
@@ -26,7 +25,7 @@ release: all
 all: $(BINARIES)
 
 # build all tests
-$(BINARIES): $(OBJECTS) $(SOURCES)
+$(BINARIES): $(SOURCES)
 	(cd $(notdir $@) && make $(TARGET))
 
 clean: $(DIRS)
