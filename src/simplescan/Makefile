@@ -1,14 +1,22 @@
+# executable name
 BIN=simplescan
 
+# compiler and linker options
 CXX=g++
 LIBS=-lz -lbluetooth
 CXXFLAGS=-std=c++11
 INCLUDES=
 
+# directory paths
 OBJDIR=../../obj
 SRCDIR=.
 BINDIR=../../bin/debug
-objects := $(patsubst %.cxx,%.o,$(wildcard *.cxx))
+
+# executable path
+BINPATH=$(BINDIR)/$(BIN)
+
+SOURCES := $(wildcard *.cxx)
+OBJECTS := $(addprefix $(OBJDIR)/,$(SOURCES:.cxx=.o))
 
 debug: CXXFLAGS += -g -Wall -Wextra
 
@@ -16,11 +24,14 @@ release: CXX=arm-linux-gnueabihf-g++
 release: CXXFLAGS += -O2
 release: BINDIR=../../bin/release
 
-debug: $(BIN)
-release: $(BIN)
+debug: $(BINPATH)
+release: $(BINPATH)
 
-$(BIN): $(objects)
-	$(CXX) $(addprefix ${OBJDIR}/,$^) -o $(BINDIR)/$@ $(LIBS)
+$(BINPATH): $(OBJECTS)
+	$(CXX) $^ -o $@ $(LIBS)
 
-%.o: %.cxx
-	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o ${OBJDIR}/$@
+$(OBJDIR)/%.o: %.cxx
+	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@
+
+
+.PHONY: debug release
