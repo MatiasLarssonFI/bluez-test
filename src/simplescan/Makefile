@@ -3,7 +3,7 @@ BIN=simplescan
 
 # compiler and linker options
 CXX=g++
-LIBS=-lz -lbluetooth
+LIBS=-lbluetooth
 CXXFLAGS=-std=c++11
 INCLUDES=
 

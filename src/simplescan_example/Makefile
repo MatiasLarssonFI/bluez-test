@@ -3,7 +3,7 @@ BIN=simplescan_example
 
 # compiler and linker options
 CC=gcc
-LIBS=-lz -lbluetooth
+LIBS=-lbluetooth
 CFLAGS=-std=c99
 INCLUDES=
 
