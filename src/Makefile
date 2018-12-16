@@ -5,7 +5,7 @@
 CROSS_TOOLCHAIN_BINDIR=$(HOME)/pi-toolchain/tools/arm-bcm2708/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
 
 # names of the executables, also subdirectories, one for each test
-BINNAMES = simplescan
+BINNAMES = simplescan simplescan_example
 
 # output directory paths
 OBJDIR = ../obj
@@ -14,7 +14,7 @@ DIRS   := $(OBJDIR) ../bin/debug ../bin/release
 
 # output file paths
 BINARIES = $(addprefix $(BINDIR)/,$(BINNAMES))
-SOURCES  = $(wildcard */*.cxx)
+SOURCES  = $(wildcard */*.cxx) $(wildcard */*.c)
 
 
 debug: TARGET=debug
