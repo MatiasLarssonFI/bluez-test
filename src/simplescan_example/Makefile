@@ -21,7 +21,7 @@ OBJECTS := $(addprefix $(OBJDIR)/,$(SOURCES:.c=.o))
 debug: CFLAGS += -g -Wall -Wextra
 
 release: CC=$(RELEASE_TOOLPREFIX)gcc
-release: CFLAGS += -g
+release: CFLAGS += -O2
 release: BINDIR=../../bin/release
 
 debug: $(BINPATH)
