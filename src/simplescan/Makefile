@@ -20,7 +20,7 @@ OBJECTS := $(addprefix $(OBJDIR)/,$(SOURCES:.cxx=.o))
 
 debug: CXXFLAGS += -g -Wall -Wextra
 
-release: CXX=arm-linux-gnueabihf-g++
+release: CXX=$(RELEASE_TOOLPREFIX)g++
 release: CXXFLAGS += -O2
 release: BINDIR=../../bin/release
 
