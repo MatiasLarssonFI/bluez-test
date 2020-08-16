@@ -5,6 +5,7 @@ BIN=simplescan
 CXX=g++
 LIBS=-lbluetooth
 CXXFLAGS=-std=c++11
+LFLAGS=-Xlinker -Map=simplescan.map
 INCLUDES=
 
 # directory paths
@@ -28,7 +29,7 @@ debug: $(BINPATH)
 release: $(BINPATH)
 
 $(BINPATH): $(OBJECTS)
-	$(CXX) $^ -o $@ $(LIBS)
+	$(CXX) $^ -o $@ $(LIBS) $(LFLAGS)
 
 $(OBJDIR)/%.o: %.cxx
 	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@
