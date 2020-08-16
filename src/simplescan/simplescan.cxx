@@ -33,7 +33,7 @@ int main() {
     char name[248] = { 0 }; // device name
 
     for (unsigned i = 0; i < (unsigned)num_rsp; ++i) {
-        inquiry_info remote_info = ii[i];
+        inquiry_info& remote_info = ii[i];
         ba2str(&remote_info.bdaddr, addr);
         memset(name, 0, sizeof(name));
         if (hci_read_remote_name(sock, &remote_info.bdaddr, sizeof(name), name, 0) < 0) {
