@@ -1,0 +1,9 @@
+bluez-test.cbp
+bluez-test.config
+bluez-test.creator
+bluez-test.creator.user
+bluez-test.files
+bluez-test.includes
+bluez-test.layout
+bin/*
+obj/*
